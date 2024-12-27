@@ -1,0 +1,35 @@
+<!-- trading_app/templates/register.html -->
+{% extends 'base_public.html' %}
+{% load static %}
+
+{% block content %}
+<h2>회원가입</h2>
+<form method="POST" action="">
+  {% csrf_token %}
+  <div>
+    <label>이메일:</label><br />
+    <input type="email" name="email" required />
+  </div>
+  <br />
+  <div>
+    <label>비밀번호:</label><br />
+    <input type="password" name="password" required />
+  </div>
+  <br />
+  <div>
+    <label>비밀번호 확인:</label><br />
+    <input type="password" name="password_confirm" required />
+  </div>
+  <br />
+  <button type="submit">회원가입 완료</button>
+  <button type="button" onclick="window.history.back()">취소</button>
+
+  {% if messages %}
+    <ul>
+    {% for msg in messages %}
+      <li>{{ msg }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+</form>
+{% endblock %}

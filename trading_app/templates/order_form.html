@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>주문하기</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label>종목 (마켓):</label>
+  <input type="text" name="market" value="KRW-BTC" /><br/><br/>
+
+  <label>매수/매도 (side):</label>
+  <select name="side">
+    <option value="bid">매수(bid)</option>
+    <option value="ask">매도(ask)</option>
+  </select><br/><br/>
+
+  <label>주문수량 (volume):</label>
+  <input type="text" name="volume" placeholder="예: 0.001" /><br/><br/>
+
+  <label>주문가격 (price):</label>
+  <input type="text" name="price" placeholder="예: 30000000 (시장가면 비워둠)" /><br/><br/>
+
+  <label>주문타입 (ord_type):</label>
+  <select name="order_type">
+    <option value="limit">지정가(limit)</option>
+    <option value="price">시장가 매수(price)</option>
+    <option value="market">시장가 매도(market)</option>
+  </select><br/><br/>
+
+  <button type="submit">주문 요청</button>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>주문 목록</h2>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>마켓</th>
+    <th>매수/매도</th>
+    <th>수량</th>
+    <th>가격</th>
+    <th>타입</th>
+    <th>상태</th>
+    <th>생성 시각</th>
+  </tr>
+  {% for order in orders %}
+  <tr>
+    <td>{{ order.id }}</td>
+    <td>{{ order.market }}</td>
+    <td>{{ order.side }}</td>
+    <td>{{ order.volume }}</td>
+    <td>{{ order.price }}</td>
+    <td>{{ order.order_type }}</td>
+    <td>{{ order.status }}</td>
+    <td>{{ order.created_at }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

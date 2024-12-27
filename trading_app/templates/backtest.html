@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>백테스트 예시</h2>
+<p>최종 수익률: <strong>{{ final_return_percent }}%</strong></p>
+
+<h3>최근 5개 데이터</h3>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>date</th>
+    <th>open</th>
+    <th>high</th>
+    <th>low</th>
+    <th>close</th>
+    <th>volume</th>
+    <th>daily_return</th>
+    <th>cumulative_return</th>
+  </tr>
+  {% for row in rows %}
+    <tr>
+    {% for cell in row %}
+      <td>{{ cell }}</td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

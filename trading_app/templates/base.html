@@ -1,0 +1,25 @@
+<<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Django Crypto Trading</title>
+</head>
+<body>
+  <header>
+    <h1>Crypto Trading Project</h1>
+    <!-- 로그인한 사람만 볼 수 있는 상단 메뉴 -->
+    <nav>
+      <a href="{% url 'home' %}">홈</a> |
+      <a href="{% url 'create_order' %}">주문하기</a> |
+      <a href="{% url 'orders_list' %}">주문목록</a> |
+      <a href="{% url 'backtest' %}">백테스트</a> |
+      <a href="{% url 'logout' %}">로그아웃</a>
+    </nav>
+  </header>
+
+  <hr>
+
+  {% block content %}{% endblock %}
+
+</body>
+</html>
